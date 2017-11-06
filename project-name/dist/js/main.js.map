@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/js/main.js"],"names":["console","log"],"mappings":";;AAAAA,QAAQC,GAAR,eAAuB,IAAE,CAAzB","file":"main.js","sourcesContent":["console.log(`2 + 2 = ${2+2}`)"]}

@@ -1,0 +1,34 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "its just description",
+  "main": "index.php",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "mskiba",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "bootstrap": "^4.0.0-alpha.6",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^7.0.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-criticalcss": "^2.1.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-tinypng": "^0.7.0",
+    "jquery": "^3.2.1",
+    "load-grunt-tasks": "^3.5.2",
+    "popper.js": "^1.12.6"
+  },
+  "dependencies": {
+    "imagemin-jpegtran": "^5.0.2"
+  }
+}

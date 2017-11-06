@@ -1,0 +1,22 @@
+//@import 'animate';
+@import 'variables';
+@import 'mixins';
+@import 'bootstrap';
+
+
+body {
+    background-color: $background;
+    color: #dedede;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #000;
+}
+
+p.mark {
+    color: #000;
+    text-align: center;
+    margin-top: 55px;
+}

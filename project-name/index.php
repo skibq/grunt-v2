@@ -9,7 +9,7 @@
 	
 	
 	
-	<title>Start template</title>
+	<title>{{title}}</title>
 </head>
 
 
@@ -28,6 +28,6 @@
 <!--	<script src="node_modules/tether/dist/js/tether.min.js"></script>-->
 <!--	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" href="dist/css/main.min.css">
-	<script src="dist/js/main.min.js"></script>
+	<script src="dist/js/production.js"></script>
 </body>
 </html>

@@ -3,6 +3,17 @@
 let project_name = 'project-name';
 
 
+const path = require('path');
+const webpackConfig = module.exports = {
+    entry: './src/js/main.js',
+    output: {
+        path: path.resolve(__dirname, 'dist/js/temp'),
+        filename: 'main.bundle.js'
+    },
+    devtool: 'cheap-source-map',
+};
+
+      
 module.exports = grunt => {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -14,7 +25,7 @@ module.exports = grunt => {
             },
             my_target: {
                 files: {
-                    'dist/js/main.min.js': ['dist/js/main.js']
+                    'dist/js/production.js': ['dist/js/temp/main.bundle.es5.js']
                 }
             }
         },
@@ -38,7 +49,7 @@ module.exports = grunt => {
             },
             js: {
                 files: ['src/js/*.js'],
-                tasks: ['babel', 'uglify'],
+                tasks: ['webpack', 'babel', 'uglify'],
                 options: {
                     spawn: false,
                     atBegin: true
@@ -66,7 +77,7 @@ module.exports = grunt => {
                     src: [
                         '*.php',
                         'dist/css/main.min.css',
-                        'dist/js/*.min.js'
+                        'dist/js/*.js'
                     ]
                 },
                 options: {
@@ -82,7 +93,7 @@ module.exports = grunt => {
             },
             upload: {
                 files: {
-                    'dist/js/main.js': 'src/js/main.js'
+                    'dist/js/temp/main.bundle.es5.js': 'dist/js/temp/main.bundle.js'
                 }
             }
         },
@@ -109,8 +120,16 @@ module.exports = grunt => {
                     ignoreConsole: false
                 }
             }
+        },
+        webpack: {
+            options: {
+                stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            },
+            prod: webpackConfig,
+            dev: Object.assign({
+                watch: false
+            }, webpackConfig)
         }
-
 
     });
 
@@ -123,6 +142,7 @@ module.exports = grunt => {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-criticalcss');
+    grunt.loadNpmTasks('grunt-webpack');
 
     grunt.registerTask('default', ['browserSync', 'watch']);
 
